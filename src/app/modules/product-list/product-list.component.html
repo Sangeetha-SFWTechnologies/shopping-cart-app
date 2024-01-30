@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row" >
+        <div class="col-4" *ngFor="let product of allProducts">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image" [style.backgroundImage]="'url(' + product.imageUrl + ')'"></div>
+                  <mat-card-title>{{product.name}}</mat-card-title>
+                  <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+                </mat-card-header>
+                <img mat-card-image [src]="product.imageUrl" height="75px" width="75px" [alt]="product.name">
+                <mat-card-content >
+                  <p class="desc">{{product.description}}</p>
+                  <p class="price">Price: {{product.price | currency:'INR':'symbol':'1.0-0'}}</p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button type="button" mat-button mat-raised-button color="accent" (click)="addToCart(product)" routerLink="/shopping-cart">Add to Cart</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        
+    </div>
+</div>
+
+
