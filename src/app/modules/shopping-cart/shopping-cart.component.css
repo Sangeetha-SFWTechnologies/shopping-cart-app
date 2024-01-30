@@ -4,8 +4,20 @@
     align-items: center;
     background-color: #3f51b5;
     color: white;
+    border-radius: 35px;
   }
-  
+
+  .example-card:hover {
+    width: 380px;
+    margin-bottom: 32px;
+    align-items: center;
+    background-color: rgb(128, 195, 237);
+    color: black;
+    border-radius: 35px;
+    height: 300px;
+    z-index: 1000;
+    margin-left:-10px;
+  }
   .example-header-image {
     /* background-image: url('../../../assets/images/img1.jpg'); */
     background-size: cover;
