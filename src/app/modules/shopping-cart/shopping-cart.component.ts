@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingCartService } from '../../services/shopping-cart.service';
-import { ProductModel } from '../../models/product.model';
 import { CartItemModel } from '../../models/cart-item';
-import { log } from 'console';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -38,8 +36,8 @@ export class ShoppingCartComponent implements OnInit {
     console.log(this.totalPrice);
   }
 
-  cancelItem(item:any){
-    this.shoppingCartService.removeFromCart(item.id);
+  cancelItem(item:any, removeBtn:number){
+    this.shoppingCartService.removeFromCart(item.id, removeBtn);
     console.log(item);
     this.getCartItems();
     this.totalPrice = this.totalPrice - item.price;    
@@ -55,7 +53,7 @@ export class ShoppingCartComponent implements OnInit {
     if ((item.quantity ?? 0) > 1) {
       item.quantity = (item.quantity ?? 0) - 1;
     } else {
-      this.cancelItem(item.id);
+      this.cancelItem(item.id,0);
     }
     this.totalPrice = this.totalPrice - (item.price ?? 0);
   }

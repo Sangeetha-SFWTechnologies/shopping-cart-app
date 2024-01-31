@@ -20,14 +20,15 @@
                 </mat-card-content>
                 <mat-card-actions>
                     
-                    <button type="button" mat-button mat-raised-button color="accent" (click)="cancelItem(cartItem)">Remove</button>
+                    <button type="button" mat-button mat-raised-button color="accent" (click)="cancelItem(cartItem, 1)">Remove</button>
                 </mat-card-actions>
             </mat-card>
         </div>
         
     </div>
-    <div class="row" style="float: right;">
-        <b>Total Price : {{totalPrice | currency:'INR':'symbol':'1.0-0'}}</b>
+    <div class="row" style="float: right; display: grid;">
+        <b style="margin-left: 6px;">Total Price : {{totalPrice | currency:'INR':'symbol':'1.0-0'}}</b>
+        <button class="checkout" type="button" mat-button mat-raised-button color="accent" routerLink="/checkout">Checkout</button>
     </div>
 </div>
 

@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { Product } from '../models/product.model';
-import { Observable, of } from 'rxjs';
-// import { ProductModel } from '../models/product.model';
 import { CartItemModel } from '../models/cart-item';
 
 let items: CartItemModel[] = [];
@@ -32,19 +29,22 @@ export class ShoppingCartService {
       }
   }
 
-  removeFromCart(productId: number): void{
+  removeFromCart(productId: number, removeBtn:number): void{
   //  items = items.filter((item) => item.id !== productId);
   // let index = items.findIndex((item)=>item.id === productId);
   // items.splice(index,1);
   const index = items.findIndex(item => item.id === productId);
 
-    if (index !== -1) {
+    if (index !== -1 && removeBtn === 0) {
       const currentItem = items[index];
       if ((currentItem.quantity ?? 0) > 1) {
         currentItem.quantity = (currentItem.quantity ?? 0) - 1;
       } else {
         items.splice(index, 1);
       }
+    }
+    else{
+      items.splice(index, 1);
     }
   }
 }
