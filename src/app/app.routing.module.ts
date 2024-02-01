@@ -7,14 +7,13 @@ import { ProductListComponent } from './modules/product-list/product-list.compon
 const routes: Routes = [
   
   {
-    path: '',
+    path: 'shopping-cart',
     component: ShoppingCartComponent,
   },
   {
-    path: '',
+    path: 'products',
     component: ProductListComponent,
   },
-  
 ];
 
 
