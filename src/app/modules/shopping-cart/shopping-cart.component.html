@@ -7,28 +7,80 @@
                   
                   <mat-card-title>{{cartItem.name}}</mat-card-title>
                   <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-                  <mat-card-actions style="margin-top: -20px;" class="mat-button-group">
-                    <button mat-button mat-raised-button color="basic" (click)="incrementQuantity(cartItem)">+</button>
+                  <mat-card-actions class="mat-button-group">
+                    <button 
+                      mat-button 
+                      mat-raised-button 
+                      color="basic" 
+                      (click)="incrementQuantity(cartItem)"
+                    >
+                      +
+                    </button>
+
                     <p class="count">{{cartItem.quantity}}</p>
-                    <button [ngClass]="cartItem.quantity === 1? 'disabled':'enabled'" mat-button mat-raised-button color="accent" style="margin-left: 5px;" (click)="decrementQuantity(cartItem)">-</button>
+
+                    <button [ngClass]="cartItem.quantity === 1? 'disabled':'enabled'"
+                       mat-button 
+                       mat-raised-button 
+                       color="accent" 
+                       class="marleft-5"
+                       (click)="decrementQuantity(cartItem)"
+                       >
+                       -
+                    </button>
                   </mat-card-actions>
                 </mat-card-header>
-                <img mat-card-image [src]="cartItem.imageUrl" height="75px" width="75px" [alt]="cartItem.name">
+                <img 
+                  mat-card-image 
+                  [src]="cartItem.imageUrl" 
+                  height="75px" 
+                  width="75px" 
+                  [alt]="cartItem.name"
+                >
                 <mat-card-content>
                   <!-- <p class="desc">{{cartItem.description}}</p> -->
                   <p class="price">Price: {{cartItem.price | currency:'INR':'symbol':'1.0-0'}}</p>
                 </mat-card-content>
                 <mat-card-actions>
-                    
-                    <button type="button" mat-button mat-raised-button color="accent" (click)="cancelItem(cartItem, 1)">Remove</button>
+                    <button 
+                      type="button" 
+                      mat-button 
+                      mat-raised-button 
+                      color="accent" 
+                      (click)="cancelItem(cartItem, 1)"
+                    >
+                      Remove
+                    </button>
                 </mat-card-actions>
             </mat-card>
         </div>
         
     </div>
-    <div class="row" style="float: right; display: grid;">
-        <b style="margin-left: 6px;">Total Price : {{totalPrice | currency:'INR':'symbol':'1.0-0'}}</b>
-        <button class="checkout" type="button" mat-button mat-raised-button color="accent" routerLink="/checkout">Checkout</button>
+    <div class="display-grid">
+      <div class="row" >
+        <b class="total">Total Price : {{totalPrice | currency:'INR':'symbol':'1.0-0'}}</b>
+      </div>
+      <div class="row btns">
+        <button 
+          type="button" 
+          mat-button 
+          mat-raised-button 
+          color="accent" 
+          routerLink="/product-list"
+        >
+          Back to home
+        </button>
+        <button 
+          class="checkout" 
+          type="button" 
+          mat-button 
+          mat-raised-button 
+          color="primary" 
+          routerLink="/checkout"
+        >
+          Checkout
+        </button>
+      </div>
     </div>
 </div>
 
