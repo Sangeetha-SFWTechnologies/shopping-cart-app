@@ -27,18 +27,17 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getTotalPrice(){
-    const prices = this.cartItems.map(data=>data.price);
-    // this.totalPrice = prices.reduce((a:any,b:any)=>a+b);
-    console.log(prices);
-    prices.forEach((price)=>{
-      this.totalPrice = this.totalPrice + price;
-    });
-    console.log(this.totalPrice);
+    // const prices = this.cartItems.map(data=>data.price);
+    // // this.totalPrice = prices.reduce((a:any,b:any)=>a+b);
+    // console.log(prices);
+    // prices.forEach((price)=>{
+    //   this.totalPrice = this.totalPrice + price;
+    // });
+    this.totalPrice = this.shoppingCartService.getTotal();
   }
 
   cancelItem(item:any, removeBtn:number){
     this.shoppingCartService.removeFromCart(item.id, removeBtn);
-    console.log(item);
     this.getCartItems();
     this.totalPrice = this.totalPrice - item.price;    
   }
