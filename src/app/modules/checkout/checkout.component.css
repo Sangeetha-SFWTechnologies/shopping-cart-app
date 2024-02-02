@@ -1,5 +1,9 @@
 .align{
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 40vh;  */
 }
 
 .btns{
@@ -9,4 +13,9 @@
 
 .back-btn{
     margin: 15px;
+}
+
+mat-card{
+    width: 400px;
+    align-items: center;
 }

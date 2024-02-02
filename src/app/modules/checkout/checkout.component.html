@@ -1,16 +1,33 @@
 <div class="align">
-    <h3>Summary</h3>
-
-    <div *ngFor="let item of cartItems">
-        <p>Product Name : {{item.name}}({{item.quantity}}) - {{shoppingCartService.getItemPrice(item) | currency:'INR':'symbol':'1.0-0'}}</p>
-    </div>  
-
-    <div>
-        <b>Total Amount : {{totalPrice | currency:'INR':'symbol':'1.0-0'}}</b>
-    </div>
-    <div class="btns">
-        <button class="back-btn" type="button" mat-button mat-raised-button color="accent" routerLink="/shopping-cart">Back to Cart</button>
-        <button type="button" mat-button mat-raised-button color="primary">Place Order</button>
-    </div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Summary</mat-card-title>
+            </mat-card-header>
+            <!-- <mat-divider></mat-divider> -->
+            <mat-card-content>
+                <div *ngFor="let item of cartItems">
+                    <p>Product Name : {{item.name}}({{item.quantity}}) - {{shoppingCartService.getItemPrice(item) | currency:'INR':'symbol':'1.0-0'}}</p>
+                </div>  
+                <!-- <mat-divider></mat-divider> -->
+                <div>
+                    <b>Total Amount : {{totalPrice | currency:'INR':'symbol':'1.0-0'}}</b>
+                </div>
+                <!-- <mat-divider></mat-divider> -->
+              </mat-card-content>
+              <mat-card-actions>
+                <div class="btns">
+                    <button class="back-btn" type="button" mat-button mat-raised-button color="accent" routerLink="/shopping-cart">Back to Cart</button>
+                    <button 
+                        type="button" 
+                        mat-button 
+                        mat-raised-button 
+                        color="primary"
+                        (click)="confirmation()"
+                        >
+                            Place Order
+                        </button>
+                </div>
+              </mat-card-actions>
+        </mat-card>
 </div>
 
