@@ -2,7 +2,7 @@
     <h3>Summary</h3>
 
     <div *ngFor="let item of cartItems">
-        <p>Product Name : {{item.name}}({{item.quantity}})</p>
+        <p>Product Name : {{item.name}}({{item.quantity}}) - {{shoppingCartService.getItemPrice(item) | currency:'INR':'symbol':'1.0-0'}}</p>
     </div>  
 
     <div>

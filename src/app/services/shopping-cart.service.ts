@@ -29,6 +29,14 @@ export class ShoppingCartService {
       }
   }
 
+  getTotal(): number {
+    return items.reduce((total, item) => total + this.getItemPrice(item), 0);
+  }
+
+  getItemPrice(item: CartItemModel): number {
+    return (item.price ?? 0) * (item.quantity ?? 0);
+  }
+
   removeFromCart(productId: number, removeBtn:number): void{
   //  items = items.filter((item) => item.id !== productId);
   // let index = items.findIndex((item)=>item.id === productId);
